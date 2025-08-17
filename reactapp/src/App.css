@@ -387,7 +387,7 @@ footer p {
   left: 796px;
 }
 
-/* Slide in from Left for about-content */
+/*  about animation slide effect  */
 @keyframes slideInLeft {
   0% {
     transform: translateX(-150px);
@@ -399,7 +399,6 @@ footer p {
   }
 }
 
-/* Slide in from Right for about-img */
 @keyframes slideInRight {
   0% {
     transform: translateX(150px);
@@ -417,4 +416,59 @@ footer p {
 
 .about-img {
   animation: slideInRight 1s ease-out forwards;
+}
+
+
+
+/* Responsiveness */
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden; 
+  }
+
+  .about-page {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;     
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .about-content {
+    order: 1;
+    max-width: 600px;     
+    width: 100%;          
+    margin: 0 auto;      
+  }
+
+  .about-content p {
+    word-wrap: break-word;
+    line-height: 1.6;
+  }
+
+  .about-img {
+    order: 2;
+    margin-top: 20px;
+    max-width: 90%;
+    display: flex;
+    justify-content: center; 
+  }
+
+  .about-img img {
+    max-width: 100%;   
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .form-section {
+    order: 3;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
