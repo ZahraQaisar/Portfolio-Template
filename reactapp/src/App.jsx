@@ -10,7 +10,7 @@ function Home() {
   return (
     <>
       {/* Home-Section */}
-      <section className='introduction' id="home">
+      <section className='introduction container' id="home">
         <div className="introduction-text" >
           <h2 className="role">UI/UX DESIGNER</h2>
           <h2 className="role-title">Hello, my name is Madelyn Torff</h2>
@@ -28,7 +28,7 @@ function Home() {
 
       {/* Projects-Section */}
 
-      <section className='projects' id="projects">
+      <section className='projects container' id="projects">
         <h2 className="title">Projects</h2>
         <div className="content-separator"></div>
 
