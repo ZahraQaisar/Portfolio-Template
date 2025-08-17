@@ -7,9 +7,11 @@
 body {
   background-color: #F9FAFF;
   font-family: 'Raleway', sans-serif;
-  padding-left: 70px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 /* NavBar */
 
@@ -22,6 +24,7 @@ nav {
   padding-bottom: 20px;
   padding-top: 5px;
   padding-left: 20px;
+  padding-right: 60px;
 }
 
 
@@ -42,12 +45,37 @@ nav {
 .navigation ul {
   display: flex;
   list-style: none;
-  gap: 20px;
+  gap: 50px;
+  cursor: pointer;
 }
 
 .navigation ul li {
   font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.navigation a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.hover-line {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #ffffff;
+  margin: 2px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.navigation ul li:hover .hover-line {
+  transform: scaleX(1);
+}
+
 
 /* Introduction Side */
 
@@ -66,7 +94,7 @@ nav {
   gap: 12px;
   top: 110px;
   left: 120px;
-  margin: 0;
+  margin-left: 70px;
 }
 
 .role {
@@ -78,11 +106,10 @@ nav {
   margin-bottom: 22px;
 }
 
-.title {
+.role-title {
   font-size: 64px;
   font-weight: 700;
   line-height: 120%;
-  /* margin-top: 1rem; */
   letter-spacing: 0;
   font-family: 'Playfair Display', serif;
 }
@@ -112,19 +139,34 @@ nav {
   border: none;
 }
 
-.btn.primary {
+.btn a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn.primary{
   background: #FFC637;
-  color: #fff;
+  color: #000000;
 }
 
 .btn.secondary {
-  border: 1px solid #333;
-  background: #fff;
+  border: 2px solid #333;
+  background: #F9FAFF;
+}
+
+.btn.btn.primary:hover{
+  background: #FFC637;
+  color: #ffffff;
+}
+
+.btn.secondary:hover {
+  border: 2px solid #FFC637;
+  background: #F9FAFF;
+  color: #FFC637;
 }
 
 .image {
   position: relative;
-  /* width: 50%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -136,3 +178,136 @@ nav {
   left: 720px;
 }
 
+/* Projects */
+
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 72px;
+  margin-bottom: 24px;
+  color: #25282B;
+  text-align: center;
+}
+
+.content-separator {
+  width: 100px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #FDC435;
+  margin: 0 auto 30px auto;
+}
+
+
+.project {
+  width: 992px;
+  height: 524px;
+  border-radius: 24px;
+  background-color: #ffffff;
+  margin: 70px auto;
+  display: flex;
+  overflow: hidden;
+}
+
+.project-img {
+  width: 496px;
+  height: 524px;
+}
+
+.project-details {
+  width: 496px;
+  height: 524px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 48px; 
+  box-sizing: border-box;
+}
+
+.project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  
+  display: block;
+}
+
+.project:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.project-details h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #25282B;
+  margin-bottom: 24px;
+}
+
+.project-details p {
+  /* font-family: 'Nunito', sans-serif; */
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #828282;
+  margin-bottom: 22px;
+}
+
+.project-details .project-btn {
+  width: 150;
+  height: 43;
+  border-radius: 24px;
+  border: 1px solid #25282B;
+  background-color: #ffffff;
+  padding: 8px 24px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #25282B;
+}
+
+.project-details .project-btn:hover {
+  background-color: #FFC637;
+  color: #ffffff;
+  border: 1px solid #FFC637;
+}
+
+/* Contact */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin: 20px 0;
+}
+
+.social-icons a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.social-icons img {
+  height: 34px;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+  filter: brightness(0) saturate(100%) invert(73%) sepia(92%) saturate(732%) hue-rotate(355deg) brightness(101%) contrast(103%);
+  transition: all 0.3s ease;
+}
+
+footer p {
+  display: flex;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #52575C;
+  margin: 20px 0 50px 0;
+}
