@@ -166,17 +166,30 @@ nav {
   color: #FFC637;
 }
 
-.image {
+/* .image {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+} */
+
+@keyframes curtainUnfold {
+  0% {
+    clip-path: circle(0% at 50% 0%); 
+    transform: scaleY(0);
+  }
+  100% {
+    clip-path: circle(150% at 50% 50%); 
+    transform: scaleY(1);
+  }
 }
 
 .image img {
   width: 720px;
   height: 629px;
   left: 720px;
+  animation: curtainUnfold 3s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  transform-origin: top center;
 }
 
 /* Projects */
@@ -329,10 +342,11 @@ footer p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 20px;
-  padding-right: 0;
-  margin: 100px;
-  position: relative;
+  padding: 0 50px;        
+  margin: 100px auto;    
+  max-width: 1200px;      
+  overflow-x: hidden;    
+  gap: 40px;              
 }
 
 .about-content {
@@ -384,6 +398,37 @@ footer p {
   height: 524px;
   top: 94px;
   left: 796px;
+}
+
+/* about animation slide effect */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-150px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(150px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.about-content {
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+.about-img {
+  animation: slideInRight 1s ease-out forwards;
 }
 
 /* Form Container */
@@ -444,4 +489,59 @@ footer p {
 
 .projects button:hover {
   background: #e5ae2f;
+}
+
+
+
+/* Responsiveness */
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden; 
+  }
+
+  .about-page {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;     
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .about-content {
+    order: 1;
+    max-width: 600px;     
+    width: 100%;          
+    margin: 0 auto;      
+  }
+
+  .about-content p {
+    word-wrap: break-word;
+    line-height: 1.6;
+  }
+
+  .about-img {
+    order: 2;
+    margin-top: 20px;
+    max-width: 90%;
+    display: flex;
+    justify-content: center; 
+  }
+
+  .about-img img {
+    max-width: 100%;   
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .form-section {
+    order: 3;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

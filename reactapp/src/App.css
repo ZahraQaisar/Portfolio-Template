@@ -166,19 +166,31 @@ nav {
   color: #FFC637;
 }
 
-.image {
+/* .image {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+} */
+
+@keyframes curtainUnfold {
+  0% {
+    clip-path: circle(0% at 50% 0%); 
+    transform: scaleY(0);
+  }
+  100% {
+    clip-path: circle(150% at 50% 50%); 
+    transform: scaleY(1);
+  }
 }
 
 .image img {
   width: 720px;
   height: 629px;
   left: 720px;
+  animation: curtainUnfold 3s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  transform-origin: top center;
 }
-
 /* Projects */
 
 
@@ -373,4 +385,36 @@ footer p {
   height: 524;
   top: 94px;
   left: 796px;
+}
+
+/* Slide in from Left for about-content */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-150px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Slide in from Right for about-img */
+@keyframes slideInRight {
+  0% {
+    transform: translateX(150px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.about-content {
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+.about-img {
+  animation: slideInRight 1s ease-out forwards;
 }
